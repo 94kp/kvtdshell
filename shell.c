@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h> 
+#include <sys/wait.h> 
 
 #define MAXSIZE 99
+#define MAXARGS 16
 
 int main (int argc, char* argv[])
 {
 	// function signatures
 	//void list_files(int, char*);
-	int tokenizer(int char*);
+	void tokenizer(char *input, char **args);
 
 	char selector = 'c';
 	char u_input[MAXSIZE] = "sample";
@@ -34,7 +38,7 @@ int main (int argc, char* argv[])
 		// run tokenizer here to figure out what command has been entered.
 
 		// int cmd_num = tokenizer(u_input);
-		tokenize(u_input, args);
+		tokenizer(u_input, args);
 
 		if (args[0] == NULL) 
 		{
@@ -134,8 +138,7 @@ int main (int argc, char* argv[])
 	// }	
 }
 
-
-void tokenize(char *input, char **args) 
+void tokenizer(char *input, char **args) 
 {
     int i = 0;
     char *token = strtok(input, " \t\n\r");
