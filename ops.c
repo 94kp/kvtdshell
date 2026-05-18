@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
 
     if (execvp(args[0], args) == -1) 
     {
-        perror("Runner: Command execution failed");
+        perror("Error: Command execution failed");
     }
 
     return 0;
