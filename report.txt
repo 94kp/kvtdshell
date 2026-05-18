@@ -81,12 +81,14 @@ HOW TO USE — COMMAND REFERENCE
         cd ..
         cd /tmp
 
-  mkdir [-v] directory ...
+  mkdir [-v] [-p] directory ...
       Create one or more directories.
         -v   print a message for each directory created
+        -p   create folders recursively
       Examples:
         mkdir newfolder
         mkdir -v folderA folderB
+        mkdir -p folderA/folderB/folderC
 
   rmdir [-v] directory ...
       Remove one or more empty directories.
