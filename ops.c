@@ -55,6 +55,18 @@ int main(int argc, char* argv[])
         args[0] = "./rmdir";
     }
 
+    else if (strcmp(args[0], "ls") == 0) 
+    {
+        args[0] = "./ls";
+    }
+
+    // add more commands here as and when they are implemented
+
+    // else if (strcmp(args[0], "rmdir") == 0) 
+    // {
+    //     args[0] = "./rmdir";
+    // }
+
     if (execvp(args[0], args) == -1) 
     {
         perror("Runner: Command execution failed");
