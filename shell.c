@@ -7,7 +7,7 @@
 #define MAXSIZE 99
 #define MAXARGS 16
 
-int main (int argc, char* argv[])
+int main ()
 {
 	// function signatures
 	//void list_files(int, char*);
@@ -52,37 +52,35 @@ int main (int argc, char* argv[])
 
 		if (strcmp(args[0], "cd") == 0)
         {
-            if (args[1] == NULL) {
+            if (args[1] == NULL) 
+            {
                 fprintf(stderr, "cd: missing arguments, require path\n");
-            } else if (chdir(args[1]) != 0) {
+            } 
+            else if (chdir(args[1]) != 0) 
+            {
                 perror("Operation Failed");
             }
             continue;
         }
 
-		pid_t pid = fork();
+		// pid_t pid = fork();
 
-		if (pid < 0) {
+        pid_t pid = fork();
+
+        if (pid < 0) {
             perror("fork() failed");
         } 
         else if (pid == 0) 
         {
 
-            if (strcmp(args[0], "ls") == 0) {
-                args[0] = "./ls";
-            } 
-            else if (strcmp(args[0], "mkdir") == 0) {
-                args[0] = "./mkdir";
+            for (int i = MAXARGS - 1; i > 0; i--) {
+                args[i] = args[i - 1];
             }
-            else if (strcmp(args[0], "rmdir") == 0) {
-                args[0] = "./rmdir";
-            }
-            else if (strcmp(args[0], "touch") == 0) {
-                args[0] = "./touch";
-            }
+            args[0] = "./ops"; 
 
-            if (execvp(args[0], args) == -1) {
-                perror("Invalid command");
+            if (execvp(args[0], args) == -1) 
+            {
+                perror("failed to initialise parser for operators");
             }
             exit(EXIT_FAILURE);
         } 
@@ -91,8 +89,43 @@ int main (int argc, char* argv[])
             int status;
             waitpid(pid, &status, 0);
         }
+    }
 
-	}
+		// if (pid < 0) {
+        //     perror("fork() failed");
+        // } 
+        // else if (pid == 0) 
+        // {
+
+        //     if (strcmp(args[0], "ls") == 0) 
+        //     {
+        //         args[0] = "./ls";
+        //     } 
+        //     else if (strcmp(args[0], "mkdir") == 0) 
+        //     {
+        //         args[0] = "./mkdir";
+        //     }
+        //     else if (strcmp(args[0], "rmdir") == 0) 
+        //     {
+        //         args[0] = "./rmdir";
+        //     }
+        //     else if (strcmp(args[0], "touch") == 0) 
+        //     {
+        //         args[0] = "./touch";
+        //     }
+            
+
+        //     if (execvp(args[0], args) == -1) 
+        //     {
+        //         perror("Invalid command");
+        //     }
+        //     exit(EXIT_FAILURE);
+        // } 
+        // else 
+        // {
+        //     int status;
+        //     waitpid(pid, &status, 0);
+        // }
 
 	return 0;
 }

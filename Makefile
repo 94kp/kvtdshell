@@ -1,15 +1,15 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-TARGETS = shell ls mkdir rmdir
+TARGETS = shell ops mkdir rmdir
 
 all: $(TARGETS)
 
 shell: shell.c
 	$(CC) $(CFLAGS) shell.c -o shell
 
-ls: ls.c
-	$(CC) $(CFLAGS) ls.c -o ls
+ops: ops.c
+	$(CC) $(CFLAGS) ops.c -o ops
 
 
 mkdir: mkdir.c
@@ -22,6 +22,6 @@ run: all
 	./shell
 
 clean:
-	rm -f $(TARGETS)
+	rm -f $(TARGETS) *.txt
 
 .PHONY: all run clean

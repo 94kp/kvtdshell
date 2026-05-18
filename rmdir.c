@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
     // 2. Execute the rmdir system call
     // Note: The standard rmdir system call will fail if the directory is not empty.
-    if (rmdir(dir_name) == -1) 
+    if (rmdir(dir_name) == -1)
     {
         perror("rmdir failed");
         return EXIT_FAILURE;
