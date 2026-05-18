@@ -1,4 +1,3 @@
-// mkdir.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,6 +11,8 @@ void create_parent_dirs(char *path)
     char *p = NULL;
     size_t len;
 
+    // printf("test print");
+
     snprintf(temp, sizeof(temp), "%s", path);
     len = strlen(temp);
     
@@ -21,11 +22,11 @@ void create_parent_dirs(char *path)
         temp[len - 1] = '\0';
     }
 
-    for (p = temp + 1; *p; p++) 
+    for (p = temp + 1; *p; p++)
     {
         if (*p == '/') 
         {
-            *p = '\0'; // temporarilyy set this as end of the string
+            *p = '\0'; // temporarily set this as end of the string
             
             mkdir(temp, 0777);
             
@@ -42,7 +43,6 @@ int main(int argc, char *argv[])
     int verbosity = 0;
     int p_flag = 0;
 
-    // 1. Add 'p' to getopt to catch the -p option
     while ((options = getopt(argc, argv, "vp")) != -1) 
     {
         switch (options) 
@@ -67,7 +67,6 @@ int main(int argc, char *argv[])
 
     char *dir_name = argv[optind];
 
-    // 2. Select creation strategy based on the flag
     if (p_flag)
     {
         create_parent_dirs(dir_name);
@@ -78,10 +77,9 @@ int main(int argc, char *argv[])
     } 
     else 
     {
-        // Standard single directory creation
         if (mkdir(dir_name, 0777) == -1) 
         {
-            perror("Error:mkdir failed");
+            perror("Error: mkdir failed");
             return EXIT_FAILURE;
         }
         if (verbosity) 

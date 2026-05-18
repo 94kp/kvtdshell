@@ -91,42 +91,6 @@ int main ()
         }
     }
 
-		// if (pid < 0) {
-        //     perror("fork() failed");
-        // } 
-        // else if (pid == 0) 
-        // {
-
-        //     if (strcmp(args[0], "ls") == 0) 
-        //     {
-        //         args[0] = "./ls";
-        //     } 
-        //     else if (strcmp(args[0], "mkdir") == 0) 
-        //     {
-        //         args[0] = "./mkdir";
-        //     }
-        //     else if (strcmp(args[0], "rmdir") == 0) 
-        //     {
-        //         args[0] = "./rmdir";
-        //     }
-        //     else if (strcmp(args[0], "touch") == 0) 
-        //     {
-        //         args[0] = "./touch";
-        //     }
-            
-
-        //     if (execvp(args[0], args) == -1) 
-        //     {
-        //         perror("Invalid command");
-        //     }
-        //     exit(EXIT_FAILURE);
-        // } 
-        // else 
-        // {
-        //     int status;
-        //     waitpid(pid, &status, 0);
-        // }
-
 	return 0;
 }
 

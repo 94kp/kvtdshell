@@ -8,7 +8,6 @@ int main(int argc, char *argv[])
     int options;
     int verbosity = 0;
 
-    // 1. Parse options using getopt
     while ((options = getopt(argc, argv, "v")) != -1) 
     {
         switch (options)
@@ -22,7 +21,6 @@ int main(int argc, char *argv[])
         }
     }
 
-    // Ensure a directory name was actually passed
     if (optind >= argc)
     {
         fprintf(stderr, "Error: missing operand - directory name required\n");
@@ -31,15 +29,12 @@ int main(int argc, char *argv[])
 
     char *dir_name = argv[optind];
 
-    // 2. Execute the rmdir system call
-    // Note: The standard rmdir system call will fail if the directory is not empty.
     if (rmdir(dir_name) == -1)
     {
         perror("Error:rmdir failed");
         return EXIT_FAILURE;
     }
 
-    // 3. Handle verbose flag output
     if (verbosity) 
     {
         printf("Error: removed directory '%s'\n", dir_name);
