@@ -1,6 +1,14 @@
 # Project Name: kvtdshell
 Project 3 for Systems Programming Course
 
+---
+
+## Contributions:
+1. <b>Karan Patil</b>: Implemented shell loop, '>' redirection and mkdir & rmdir commands.
+2. <b>Devjyot Singh Sidhu</b>: Implemented '<' redirction and touch & cat command.
+
+---
+
 ## How to run:
 Just run make command in shell (prerequisite: gcc compiler) and then run ./shell.
 
@@ -60,9 +68,3 @@ Redirects the contents of a file to the standard input of a command.
 
 **Examples:**
 - `cat < file.txt` — reads and prints the contents of file.txt via stdin
-
----
-
-## Contributions:
-1. <b>Karan Patil</b>: Implemented shell loop, '>' redirection and mkdir & rmdir commands.
-2. <b>Devjyot Singh Sidhu</b>: Implemented '<' redirction and touch & cat command.
