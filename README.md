@@ -6,6 +6,7 @@ Project 3 for Systems Programming Course
 ## Contributions:
 1. <b>Karan Patil</b>: Implemented shell loop, '>' redirection and mkdir & rmdir commands.
 2. <b>Devjyot Singh Sidhu</b>: Implemented '<' redirction and touch & cat command.
+3. <b>Tanish Sarang Mahajan</b>: Implemented '>>' redirection and cd command.
 
 ---
 
