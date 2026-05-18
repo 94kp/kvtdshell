@@ -1,0 +1,147 @@
+================================================================================
+                          kvtdshell — Project Report
+                       Systems Programming Course — Project 3
+================================================================================
+
+--------------------------------------------------------------------------------
+PROJECT DESCRIPTION
+--------------------------------------------------------------------------------
+
+kvtdshell is a lightweight Unix shell built from scratch in C. It supports
+running core file system commands, chaining them with I/O redirection, and
+executing them in a loop just like a real shell. The project was split across
+four team members, each responsible for a distinct set of commands and features.
+
+The shell reads user input line by line, parses it into a command and arguments,
+handles any redirection operators (>, <, >>), then forks a child process to
+execute the appropriate built-in command binary.
+
+--------------------------------------------------------------------------------
+KEY FEATURES
+--------------------------------------------------------------------------------
+
+  - Interactive shell loop with prompt
+  - Output redirection  (>)  — write stdout to a file, overwriting it
+  - Append redirection  (>>)  — write stdout to a file, appending to it
+  - Input redirection   (<)  — feed a file into a command's stdin
+  - Built-in commands: ls, cd, mkdir, rmdir, touch, cat
+  - Verbose mode (-v) supported across ls, touch, cat, mkdir, rmdir
+  - Multiple file/path arguments supported across all commands
+  - Graceful error handling and descriptive error messages throughout
+
+--------------------------------------------------------------------------------
+HOW TO BUILD
+--------------------------------------------------------------------------------
+
+Prerequisites: gcc must be installed on your system.
+
+  1. Open a terminal and navigate to the project folder:
+
+       cd kvtdshell
+
+  2. Run make:
+
+       make
+
+  This compiles the shell and all command binaries (shell, ops, ls, mkdir,
+  rmdir, touch, cat) into the current directory.
+
+--------------------------------------------------------------------------------
+HOW TO RUN
+--------------------------------------------------------------------------------
+
+After building, start the shell with:
+
+    ./shell
+
+You will see a prompt. Type any supported command and press Enter.
+To exit the shell, type:
+
+    exit
+
+--------------------------------------------------------------------------------
+HOW TO USE — COMMAND REFERENCE
+--------------------------------------------------------------------------------
+
+  ls [-l] [-a] [-v] [path ...]
+      List directory contents.
+        -l   detailed view with permissions, owner, size, and timestamp
+        -a   include hidden dot-files
+        -v   print which directory is being listed
+      Examples:
+        ls
+        ls -la
+        ls -v /some/folder
+        ls dir1 dir2
+
+  cd [path]
+      Change the current working directory.
+      Examples:
+        cd Documents
+        cd ..
+        cd /tmp
+
+  mkdir [-v] directory ...
+      Create one or more directories.
+        -v   print a message for each directory created
+      Examples:
+        mkdir newfolder
+        mkdir -v folderA folderB
+
+  rmdir [-v] directory ...
+      Remove one or more empty directories.
+        -v   print a message for each directory removed
+      Examples:
+        rmdir oldfolder
+        rmdir -v folderA folderB
+
+  touch [-v] [-c] file ...
+      Create a file or update its timestamp.
+        -v   print what action was taken
+        -c   skip creation if the file does not already exist
+      Examples:
+        touch notes.txt
+        touch -v file1.txt file2.txt
+
+  cat [-v] [-n] [file ...]
+      Print file contents to stdout.
+        -v   print the filename before its contents
+        -n   number each output line
+      Examples:
+        cat file.txt
+        cat -n file1.txt file2.txt
+
+  Redirection:
+        command > file    write output to file (overwrite)
+        command >> file   write output to file (append)
+        command < file    read input from file
+
+  Examples:
+        ls > out.txt
+        cat < input.txt
+        ls >> log.txt
+
+--------------------------------------------------------------------------------
+TEAM CONTRIBUTIONS
+--------------------------------------------------------------------------------
+
+  Karan Patil
+    - Implemented the main shell loop (shell.c)
+    - Implemented output redirection (>) via ops.c
+    - Implemented mkdir and rmdir commands
+
+  Devjyot Singh Sidhu
+    - Implemented input redirection (<) via ops.c
+    - Implemented touch and cat commands
+
+  Tanish Sarang Mahajan
+    - Implemented append redirection (>>) via ops.c
+    - Implemented the cd command
+
+  Vedant Pandhare
+    - Implemented the ls command (ls.c) — 182 lines
+    - Features: basic listing, detailed view (-l), hidden files (-a),
+      verbose mode (-v), multiple directory arguments, and full
+      permission/owner/group/timestamp display in long format
+
+--------------------------------------------------------------------------------
