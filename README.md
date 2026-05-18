@@ -12,14 +12,23 @@ Project 3 for Systems Programming Course
 ---
 
 ## How to run:
-Just run make command in shell (prerequisite: gcc compiler) and then run ./shell.
+Use 'make' to build the program and use 'make run' to run the shell program. 
 
 ---
 
 ## Shell command usage:
 ### rmdir
+Remove specified directory
+- `-v` - verbose mode, prints written messages describing the action taken
+
+**Usage:** `rmdir [-v] <folder name>`
 
 ### mkdir
+Create directory
+- `-v` - verbose mode, prints written messages describing the action taken
+- `-p` - create directories recursively
+
+**Usage:** `mkdir [-v] [-p] <folder name>`
 
 ### touch
 Creates a file if it does not exist, or updates its timestamp if it does.
