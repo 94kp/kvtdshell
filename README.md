@@ -7,6 +7,7 @@ Project 3 for Systems Programming Course
 1. <b>Karan Patil</b>: Implemented shell loop, '>' redirection and mkdir & rmdir commands.
 2. <b>Devjyot Singh Sidhu</b>: Implemented '<' redirction and touch & cat command.
 3. <b>Tanish Sarang Mahajan</b>: Implemented '>>' redirection and cd command.
+4. <b>Vedant Pandhare</b>: Implemented the ls command with support for detailed listings, hidden files, and verbose output.
 
 ---
 
@@ -49,6 +50,25 @@ Reads and prints the contents of a file, or reads from standard input if no file
 - `cat -n file.txt` — prints the contents of file.txt with line numbers
 - `cat file1.txt file2.txt` — prints the contents of both files in order
 - `cat < file.txt` — reads file.txt via stdin redirection
+
+### ls
+Lists the contents of a directory. By default it shows the current directory, but you can pass any path you want. It also supports multiple directories at once. Hidden files (dot-entries) are skipped unless you explicitly ask for them with -a.
+
+**Usage:** `ls [-l] [-a] [-v] [path ...]`
+
+**Options:**
+- `-l` — detailed view, shows permissions, owner, group, file size, and last modified time for each entry
+- `-a` — include hidden files and folders (those starting with a dot)
+- `-v` — verbose mode, prints which directory is being listed before showing its contents
+
+**Examples:**
+- `ls` — lists everything in the current directory
+- `ls -l` — same as above but with full file details on each line
+- `ls -a` — lists everything including hidden dot-files
+- `ls -la` — combines both, detailed view of all files including hidden ones
+- `ls -v /some/path` — lists a specific directory and announces which one it's reading
+- `ls dir1 dir2` — lists two directories one after the other
+- `ls > out.txt` — writes the directory listing into a file using output redirection
 
 ---
 
