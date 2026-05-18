@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-TARGETS = shell ops mkdir rmdir touch cat
+TARGETS = shell ops mkdir rmdir touch cat ls
 
 all: $(TARGETS)
 
@@ -23,6 +23,8 @@ touch: touch.c
 cat: cat.c
 	$(CC) $(CFLAGS) cat.c -o cat
 
+ls: ls.c
+	$(CC) $(CFLAGS) ls.c -o ls
 run: all
 	./shell
 
