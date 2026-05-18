@@ -9,8 +9,10 @@ PROJECT DESCRIPTION
 
 kvtdshell is a lightweight Unix shell built from scratch in C. It supports
 running core file system commands, chaining them with I/O redirection, and
-executing them in a loop just like a real shell. The project was split across
-four team members, each responsible for a distinct set of commands and features.
+executing them in a loop just like a real shell. The loop consists of a tokenizer
+that goes through the input word by word and executes the appropriate command with
+its options (if any were provided). The project was split across four team members,
+each responsible for a distinct set of commands and features.
 
 The shell reads user input line by line, parses it into a command and arguments,
 handles any redirection operators (>, <, >>), then forks a child process to
